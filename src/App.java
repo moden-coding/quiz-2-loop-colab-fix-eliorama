@@ -77,8 +77,27 @@ public class App {
         int magicNumber = getMeARandomNumber();
         System.out.println("The magic number is "+ magicNumber + ". Shh! Don't tell anyone");
         Scanner reader = new Scanner(System.in);
-    }
+int howManyguesses = 0;
+        while(true){
+      
+    System.out.println("Enter a number:");
+        int inputguess = Integer.valueOf(reader.nextLine());
+            howManyguesses++;
 
+     if(inputguess-2 == magicNumber || magicNumber == inputguess+2 || magicNumber == inputguess+1 || inputguess-1 == magicNumber) {
+        System.out.println("Very close!");
+     }else if(inputguess-5 <= magicNumber || magicNumber <= inputguess+5){
+        System.out.println("Way off!");
+     }if (inputguess < 0 || inputguess > 10){
+    System.out.println("Enter a number between 1 and 10!");
+     }else if(inputguess == magicNumber){
+        
+            break;
+        }
+    }
+    
+    System.out.println("You took " + howManyguesses + " guesses!");
+    }
 
     //Do not modify!!!
     public static int getMeARandomNumber(){
